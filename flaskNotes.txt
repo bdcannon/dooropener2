@@ -1,0 +1,6 @@
++ When Flask receives a request from a client, it needs to make a few objects
+  available to the view function that will handle it. The obvious way would be
+  to pass in the request object to the view function as a parameter, but then
+  every view function declaration would have a extra parameter.
+    * To handle this flask uses contexts to make certain objects globally accessible
+    
