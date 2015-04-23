@@ -3,4 +3,16 @@
   to pass in the request object to the view function as a parameter, but then
   every view function declaration would have a extra parameter.
     * To handle this flask uses contexts to make certain objects globally accessible
-    
+    * Extra note: A tread is the smalles sequence of instructions that can be
+      managed independantly.
+
+USING FLASK BOOTSTRAP:
+  Many of the blocks in the twitter bootstrap are used by the flask-bootstrap
+  package. When using the styles and scripts blocks, you must use {{super ()}}
+  to pull in the scripts.
+
+PYTHON DICTIONARIES :
+  + A python dictionary is pretty much an associative array or a map. Unlike
+    sequences, which are indexed by a range of numbers, dictionaries are indexed,
+    by keys, which can be any immutable type; stings and numbers can always be keys.
+    Tuples can be used as strings as long as they only strings, numbers, or tuples.
