@@ -1,0 +1,60 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}DoorOpener 2.0{% endblock %}
+{% block head %}
+  {{super()}}
+  <link href="{{url_for('static', filename="stylesheets/styles.css") }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block navbar %}
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle"
+             data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">DoorOpener 2.0</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h3>Welcome, {{userName}}</h3>
+  <h4>The Door is at your command...</h4>
+  <div class="btn-group" role="group" aria-label="Door Controls">
+    <!-- Form for buttons -->
+    <form id="control-form" method="POST">
+      <button id="open-button" type="button" class="btn btn-success">Open</button>
+      <button id="close-button" type="button" class="btn btn-danger">Close</button>
+      <input type="hidden" name="remove"/>
+    </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts%}
+  {{super()}}
+  <script type="text/javascript">
+    $("#open-button").on('click', function(){
+      var form = $("#control-form");
+      form.attr("action","/controls?do=open");
+      form.submit();
+    });
+    $("#close-button").on('click', function(){
+      var form = $("#control-form");
+      form.attr("action","/controls?do=close");
+      form.submit();
+    });
+  </script>
+{% endblock %}
